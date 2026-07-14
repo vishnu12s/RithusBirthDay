@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Love Surprise ❤️</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+margin:0;
+background:linear-gradient(135deg,#ff4d8d,#ff9a9e,#fad0c4);
+overflow-x:hidden;
+font-family:Arial,sans-serif;
+}
+
+/* Floating Hearts */
+
+.heart{
+position:fixed;
+width:18px;
+height:18px;
+background:red;
+transform:rotate(45deg);
+animation:float 8s linear infinite;
+opacity:.7;
+}
+
+.heart:before,
+.heart:after{
+content:'';
+position:absolute;
+width:18px;
+height:18px;
+background:red;
+border-radius:50%;
+}
+
+.heart:before{
+top:-9px;
+}
+
+.heart:after{
+left:-9px;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(100vh) rotate(45deg);
+opacity:0;
+}
+
+100%{
+transform:translateY(-120vh) rotate(45deg);
+opacity:1;
+}
+
+}
+
+.popup{
+animation:zoom .4s;
+}
+
+@keyframes zoom{
+
+from{
+transform:scale(.5);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="min-h-screen py-12 px-4">
+
+<h1 class="text-center text-5xl font-bold text-white mb-10">
+💖 My Love Collection 💖
+</h1>
+
+<div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+<button onclick="showPopup(0)" class="bg-red-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+❤️ Our First Memory
+</button>
+
+<button onclick="showPopup(1)" class="bg-pink-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+🌹 My Queen
+</button>
+
+<button onclick="showPopup(2)" class="bg-purple-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+💕 My Heart
+</button>
+
+<button onclick="showPopup(3)" class="bg-blue-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+🥰 Your Smile
+</button>
+
+<button onclick="showPopup(4)" class="bg-green-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+🌸 Beautiful You
+</button>
+
+<button onclick="showPopup(5)" class="bg-yellow-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+💖 Forever Together
+</button>
+
+<button onclick="showPopup(6)" class="bg-orange-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+🎁 Birthday Gift
+</button>
+
+<button onclick="showPopup(7)" class="bg-indigo-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+💌 Love 
+</button>
+
+<button onclick="showPopup(8)" class="bg-teal-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+🌙 My Moon
+</button>
+
+<button onclick="showPopup(9)" class="bg-rose-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+✨ My Angel
+</button>
+
+<button onclick="showPopup(10)" class="bg-fuchsia-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+💍 Future Together
+</button>
+
+<button onclick="showPopup(11)" class="bg-cyan-500 hover:scale-105 duration-300 text-white p-5 rounded-3xl shadow-xl text-xl">
+❤️ Endless Love
+</button>
+
+</div>
+
+</div>
+
+<!-- Popup -->
+
+<div id="popup"
+class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-5">
+
+<div class="popup bg-white rounded-3xl p-6 max-w-md w-full text-center relative">
+
+<button
+onclick="closePopup()"
+class="absolute top-3 right-4 text-3xl">
+✖
+</button>
+
+<img
+id="popupImage"
+class="rounded-2xl h-80 w-full object-cover mb-5">
+
+<h2
+id="popupTitle"
+class="text-3xl font-bold text-pink-600">
+</h2>
+
+<p
+id="popupText"
+class="mt-4 text-gray-700 text-lg leading-8">
+</p>
+
+</div>
+
+</div>
+<audio id="music" loop autoplay>
+    <source src="song/song3.mp3" type="audio/mpeg">
+</audio>
+<script>
+
+for(let i=0;i<40;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.getElementById("hearts").appendChild(h);
+
+}
+
+const data=[
+
+{
+img:"images/9.jpeg",
+title:"❤️ Our First Memory",
+text:"Every love story is beautiful, but ours is my favorite."
+},
+
+{
+img:"images/14.jpeg",
+title:"🌹 My Queen",
+text:"You are the queen of my heart forever."
+},
+
+{
+img:"images/8.jpeg",
+title:"💕 My Heart",
+text:"Wherever I go, my heart always belongs to you."
+},
+
+{
+img:"images/5.jpeg",
+title:"🥰 Your Smile",
+text:"Your smile is my favorite sunrise."
+},
+
+{
+img:"images/4.jpeg",
+title:"🌸 chundariii",
+text:"You're the most beautiful blessing in my life."
+},
+
+{
+img:"images/7.jpeg",
+title:"💖 Forever Together",
+text:"I wish to hold your hand forever."
+},
+
+{
+img:"images/2.jpeg",
+title:"🎁 Birthday Gift",
+text:"My greatest gift is having you in my life."
+},
+
+{
+img:"images/1.jpeg",
+title:"💌 Love ",
+text:"Every heartbeat writes your name."
+},
+
+{
+img:"images/11.jpeg",
+title:"🌙 My Moon",
+text:"You light up my darkest nights."
+},
+
+{
+img:"images/13.jpeg",
+title:"✨ My Angel",
+text:"You are my angel sent from heaven."
+},
+
+{
+img:"images/33.jpeg",
+title:"💍 Future Together",
+text:"One day I hope we celebrate every birthday together."
+},
+
+{
+img:"images/12.jpeg",
+title:"❤️ Endless Love",
+text:"No matter how many birthdays pass, I'll always love you."
+}
+
+];
+
+function showPopup(i){
+
+document.getElementById("popup").classList.remove("hidden");
+
+document.getElementById("popupImage").src=data[i].img;
+
+document.getElementById("popupTitle").innerHTML=data[i].title;
+
+document.getElementById("popupText").innerHTML=data[i].text;
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").classList.add("hidden");
+
+}
+
+
+
+// Music
+
+const music = document.getElementById("music");
+
+// Auto play after first user interaction
+document.addEventListener(
+    "click",
+    function () {
+        music.play().catch(() => {});
+    },
+    { once: true }
+);
+
+// Play / Pause button
+function playMusic() {
+
+    if (music.paused) {
+
+        music.play();
+
+        event.target.innerHTML = "⏸ Pause Music";
+
+    } else {
+
+        music.pause();
+
+        event.target.innerHTML = "🎵 Play Music";
+
+    }
+
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday My Love ❤️</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+overflow:hidden;
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(135deg,#ff5f9e,#ff9a8b,#fad0c4);
+}
+
+/* Floating Hearts */
+
+.heart{
+position:absolute;
+width:20px;
+height:20px;
+background:red;
+transform:rotate(45deg);
+animation:float 10s linear infinite;
+opacity:.7;
+}
+
+.heart:before,
+.heart:after{
+content:'';
+position:absolute;
+width:20px;
+height:20px;
+background:red;
+border-radius:50%;
+}
+
+.heart:before{
+top:-10px;
+left:0;
+}
+
+.heart:after{
+left:-10px;
+top:0;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(100vh) rotate(45deg);
+opacity:0;
+}
+
+30%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(45deg);
+opacity:0;
+}
+
+}
+
+/* Cake Animation */
+
+.cake{
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+}
+
+/* Glow */
+
+.glow{
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px #fff;
+}
+
+to{
+text-shadow:0 0 30px yellow,0 0 60px orange;
+}
+
+}
+
+/* Confetti */
+
+.confetti{
+position:absolute;
+width:10px;
+height:10px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-50px) rotate(0);
+}
+
+100%{
+transform:translateY(110vh) rotate(720deg);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div id="confetti"></div>
+
+<div class="min-h-screen flex items-center justify-center px-4">
+
+<div class="bg-white/20 backdrop-blur-lg rounded-3xl shadow-2xl p-8 max-w-3xl w-full text-center">
+
+<h1 class="text-5xl md:text-7xl font-bold text-white glow mb-6">
+🎉 Happy Birthday 🎉
+</h1>
+
+<h2 class="text-4xl font-bold text-pink-100 mb-6">
+My Beautiful Princess ❤️
+</h2>
+
+<div class="text-8xl cake mb-5">
+🎂
+</div>
+
+<p id="message"
+class="text-white text-xl leading-9 font-semibold min-h-[150px]">
+</p>
+
+<div class="mt-8 flex flex-wrap justify-center gap-4">
+
+<button onclick="location.href='surprise.html'"
+class="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-full text-lg shadow-lg">
+💝 Open My Surprise
+</button>
+
+<button onclick="playMusic()"
+class="bg-purple-700 hover:bg-purple-800 text-white px-8 py-3 rounded-full text-lg shadow-lg">
+🎵 Play Music
+</button>
+
+</div>
+
+<div id="surpriseText"
+class="hidden mt-8 text-2xl font-bold text-yellow-200 animate-pulse">
+
+❤️ I Love You Forever ❤️
+
+<br><br>
+
+🌹 You are my happiness, my smile, my dream, and my forever. 🌹
+
+</div>
+
+</div>
+
+</div>
+
+<audio id="music" loop autoplay>
+    <source src="song/song1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// Floating Hearts
+
+const heartContainer=document.getElementById("hearts");
+
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(6+Math.random()*8)+"s";
+
+heart.style.animationDelay=Math.random()*5+"s";
+
+heart.style.opacity=Math.random();
+
+heart.style.transform=`scale(${Math.random()+0.5}) rotate(45deg)`;
+
+heartContainer.appendChild(heart);
+
+}
+
+// Confetti
+
+const colors=["red","yellow","blue","green","pink","orange","white"];
+
+const conf=document.getElementById("confetti");
+
+for(let i=0;i<180;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+c.style.animationDuration=(3+Math.random()*4)+"s";
+
+c.style.animationDelay=Math.random()*4+"s";
+
+conf.appendChild(c);
+
+}
+
+// Typewriter Message
+
+const text=`My Dearest Love ❤️,
+
+Happy Birthday to the most beautiful girl in my life.
+
+Every day with you is a blessing.
+
+Your smile brightens my darkest days.
+
+Your love makes my world complete.
+
+I pray this birthday fills your life with endless happiness,
+good health,
+beautiful memories,
+and all the success you dream of.
+
+Thank you for being my biggest happiness.
+
+I promise to stand beside you,
+support you,
+care for you,
+and love you forever.
+
+Happy Birthday My Love ❤️
+
+I Love You More Than Words Can Ever Say. ❤️`;
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("message").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,40);
+
+}
+
+}
+
+type();
+
+// Surprise
+
+function surprise(){
+
+document.getElementById("surpriseText").classList.remove("hidden");
+
+}
+
+// Music
+
+const music = document.getElementById("music");
+
+// Auto play after first user interaction
+document.addEventListener(
+    "click",
+    function () {
+        music.play().catch(() => {});
+    },
+    { once: true }
+);
+
+// Play / Pause button
+function playMusic() {
+
+    if (music.paused) {
+
+        music.play();
+
+        event.target.innerHTML = "⏸ Pause Music";
+
+    } else {
+
+        music.pause();
+
+        event.target.innerHTML = "🎵 Play Music";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
